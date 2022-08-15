@@ -177,7 +177,7 @@
 		padding: 10px;
 	}
 	#top_section .inner_wrap, #wrapper, #header, #footer .inner_wrap {
-		width: 100%;
+		width: 95%;
 	}
 	#upper_section, #inner_section, #content_section {
 		border-radius: 0;
@@ -262,6 +262,25 @@
 		float: none;
 		width: auto;
 		position: relative;
+	}
+	.postbit-banner {
+		height: 75px;
+	}
+	.poster-name {
+		display: block !important;
+	}
+	.user_info {
+		padding: 0px;
+	}
+	.postgroup, .membergroup {
+		font-size: 12px;
+		font-weight: normal;
+		text-align: center;
+		margin: 0;
+		width: 100%;
+	}
+	.poster, .postarea {
+		width: 100%;
 	}
 	.postarea {
 		margin: 0;

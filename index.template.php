@@ -212,7 +212,7 @@ function template_body_above()
 		<div class="inner_wrap p-nav-inner">
 		<div class="p-header-logo p-header-logo--image">
 			<h1 class="forumtitle">
-			<a id="top" href="', $scripturl, '">', empty($context['header_logo_url_html_safe']) ? $context['forum_name_html_safe'] : '<img src="' . $context['header_logo_url_html_safe'] . '" alt="' . $context['forum_name_html_safe'] . '">', '</a>
+                            <a class="horizontal-logo text-left" href="', $scripturl, '">', !empty($settings['header_fa']) ? '<i class="'.$settings['header_fa'].'"></i>' : '', '<span class="h4 font-weight-bold align-self-center mb-0 ml-auto">', $context['forum_name'].'</span></a>
 		    </h1>
 			</div>';
 
@@ -221,7 +221,6 @@ function template_body_above()
 	echo '
 				<a class="mobile_user_menu">
 					<span class="menu_icon"></span>
-					<span class="text_menu">', $txt['mobile_user_menu'], '</span>
 				</a>
 				<div id="main_menu">
 					<div id="mobile_user_menu" class="popup_container">
@@ -256,8 +255,8 @@ function template_body_above()
 			echo '
 				<li>
 					<a href="', $scripturl, '?action=pm"', !empty($context['self_pm']) ? ' class="active"' : '', ' id="pm_menu_top">
-						<span class="main_icons inbox"></span>
-						<span class="textmenu">', $txt['pm_short'], '</span>', !empty($context['user']['unread_messages']) ? '
+						<i class="far fa-envelope"></i>
+						', !empty($context['user']['unread_messages']) ? '
 						<span class="amt">' . $context['user']['unread_messages'] . '</span>' : '', '
 					</a>
 					<div id="pm_menu" class="top_menu scrollable"></div>
@@ -267,8 +266,8 @@ function template_body_above()
 		echo '
 				<li>
 					<a href="', $scripturl, '?action=profile;area=showalerts;u=', $context['user']['id'], '"', !empty($context['self_alerts']) ? ' class="active"' : '', ' id="alerts_menu_top">
-						<span class="main_icons alerts"></span>
-						<span class="textmenu">', $txt['alerts'], '</span>', !empty($context['user']['alerts']) ? '
+						<i class="icon far fa-bell"></i>
+						', !empty($context['user']['alerts']) ? '
 						<span class="amt">' . $context['user']['alerts'] . '</span>' : '', '
 					</a>
 					<div id="alerts_menu" class="top_menu scrollable"></div>
@@ -303,7 +302,7 @@ function template_body_above()
 			<ul class="floatleft" id="top_info">
 				<li class="button_login">
 					<a href="', $scripturl, '?action=login" class="', $context['current_action'] == 'login' ? 'active' : 'open','" onclick="return reqOverlayDiv(this.href, ' . JavaScriptEscape($txt['login']) . ', \'login\');">
-						<span class="main_icons login"></span>
+						<i class="fas fa-user-check"></i>
 						<span class="textmenu">', $txt['login'], '</span>
 					</a>
 				</li>';
@@ -312,7 +311,7 @@ function template_body_above()
 				echo '
 				<li class="button_signup">
 					<a href="', $scripturl, '?action=signup" class="', $context['current_action'] == 'signup' ? 'active' : 'open','">
-						<span class="main_icons regcenter"></span>
+						<i class="fas fa-user-edit"></i>
 						<span class="textmenu">', $txt['register'], '</span>
 					</a>
 				</li>';
@@ -583,7 +582,7 @@ function template_menu()
 		echo '
 						<li class="button_', $act, '', !empty($button['sub_buttons']) ? ' subsections"' : '"', '>
 							<a', $button['active_button'] ? ' class="active"' : '', ' href="', $button['href'], '"', isset($button['target']) ? ' target="' . $button['target'] . '"' : '', isset($button['onclick']) ? ' onclick="' . $button['onclick'] . '"' : '', '>
-								', $button['icon'], '<span class="textmenu">', $button['title'], !empty($button['amt']) ? ' <span class="amt">' . $button['amt'] . '</span>' : '', '</span>
+								<i class="fa fa-', $act, ' fa-lg"></i><span class="textmenu">', $button['title'], !empty($button['amt']) ? ' <span class="amt">' . $button['amt'] . '</span>' : '', '</span>
 							</a>';
 
 		// 2nd level menus

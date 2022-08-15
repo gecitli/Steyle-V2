@@ -63,7 +63,7 @@ function template_main()
 	// Show the anchor for the top and for the first message. If the first message is new, say so.
 	echo '
 		</div><!-- #display_head -->
-		', $context['first_new_message'] ? '<a id="new"></a>' : '';
+		<a id="msg', $context['first_message'], '"></a>', $context['first_new_message'] ? '<a id="new"></a>' : '';
 
 	// Is this topic also a poll?
 	if ($context['is_poll'])
@@ -231,7 +231,8 @@ function template_main()
 			<div class="pagelinks floatleft">
 				<a href="#bot" class="button">', $txt['go_down'], '</a>
 				', $context['page_index'], '
-			</div>';
+			</div>
+		</div>';
 
 	// Mobile action - moderation buttons (top)
 	if (!empty($context['normal_buttons']))
@@ -241,12 +242,9 @@ function template_main()
 			', !empty($context['mod_buttons']) ? '<a class="button mobile_mod">' . $txt['mobile_moderation'] . '</a>' : '', '
 		</div>';
 
-	echo '
-		</div>';
-
 	// Show the topic information - icon, subject, etc.
 	echo '
-		<div id="forumposts">
+		<div id="forumposts" class="post-container">
 			<form action="', $scripturl, '?action=quickmod2;topic=', $context['current_topic'], '.', $context['start'], '" method="post" accept-charset="', $context['character_set'], '" name="quickModForm" id="quickModForm" onsubmit="return oQuickModify.bInEditMode ? oQuickModify.modifySave(\'' . $context['session_id'] . '\', \'' . $context['session_var'] . '\') : false">';
 
 	$context['ignoredMsgs'] = array();
@@ -480,7 +478,7 @@ function template_single_post($message)
 	echo '
 				<div class="postblock ', trim(str_replace('windowbg', '', $message['css_class'])), '">
 					', $message['id'] != $context['first_message'] ? '
-					' . ($message['first_new'] ? '<a id="new"></a>' : '') : '', '
+					<a id="msg' . $message['id'] . '"></a>' . ($message['first_new'] ? '<a id="new"></a>' : '') : '', '
 					<div class="post_wrapper">';
 
 	// Show information about the poster of this message.

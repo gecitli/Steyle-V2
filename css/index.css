@@ -749,35 +749,30 @@ img.sort, .sort {
 	display: block;
 	border: 1px solid transparent;
 	border-radius: 4px;
-}
-/* Level 1 active button. */
-.dropmenu a.active, #top_info a.active {
-	color: #fff;
-	font-weight: bold;
-	border-color: #f49a3a;
-	background: linear-gradient(#ffae14, #f5a100);
-	text-shadow: 0 0 2px #000;
+	padding-top: 0.15rem !important;
+    padding-bottom: 0.15rem !important;
 }
 /* Level 1 hover effects. */
 .dropmenu > li:hover > a, .dropmenu > li > a:focus,
 #top_info > li:hover > a, #top_info > li > a:focus {
-	background: #597b9f;
-	border: 1px solid #4a6b8c;
-	color: #fff;
-	cursor: pointer;
-	text-decoration: none;
-	box-shadow: 0 4px 4px rgba(255, 255, 255, 0.1) inset;
-	text-shadow: 0 0 2px #000;
+	transition: color 0.2s ease;
+    background: rgba(255, 255, 255, 0.32);
+    color: #ffffff;
+    border-color: #f6f6f642;
 }
 /* Level 1 active button. */
 .dropmenu li a.active:hover, .dropmenu li:hover a.active {
-	background: orange;
-	border: 1px solid #f49a3a;
-	color: #444;
-	box-shadow: 0 5px 5px rgba(255, 255, 255, 0.2) inset;
+	transition: color 0.2s ease;
+    background: rgba(255, 255, 255, 0.32);
+    color: #ffffff;
+    border-color: #f6f6f642;
 	text-shadow: none;
 }
-
+#language_select {
+    padding: 0 0.4em;
+    height: 2.55em;
+    line-height: 2.55em;
+}
 a.mobile_user_menu,
 a[class^="mobile_generic_menu_"] {
 	display: none;
@@ -3305,15 +3300,9 @@ div#pollmoderation {
 	clear: both;
 }
 /* poster details and list of items */
-.poster {
-	float: left;
-	/* Don't set this in em.It will eat too much space if people need to set large text sizes. */
-	width: 160px;
-	-webkit-hyphens: auto;
-	-ms-hyphens: auto;
-	hyphens: auto;
-	word-wrap: break-word; /* IE fallback */
-	overflow-wrap: break-word;
+.post_wrapper {
+    display: flex;
+    flex-wrap: wrap;
 }
 .poster h4 {
 	font-size: 1.2em;
@@ -3360,16 +3349,13 @@ img.avatar {
 }
 .poster img.avatar {
 	max-width: 100%;
-	margin-top: -65px;
+	margin-top: -40px;
 	position: relative;
 	border-radius: 50%;
 	padding: 5px;
 	border-radius: 50%;
 	background-color: #fff;
 	box-shadow: 0 6px 21px 0rgba(0,0,0,.12);
-}
-.postarea, .moderatorbar {
-	margin: 0 0 0 175px;
 }
 .postarea div.flow_hidden {
 	width: 100%;
@@ -4252,15 +4238,22 @@ body {
 }
 /* Dropdown search */
 .dropbtn_search {
-  background-color: #ff5722;
+  background-color: rgba(255, 255, 255, 0.32);
   color: white;
   border: none;
   cursor: pointer;
+  padding: 0em 0.75em 0em 0.75em;
+  height: 2.55em;
+  line-height: 2.55em;
+  border-radius: 5px;
 }
+.dropbtn_search i {
+	font-size: 14px;
+  }
 
 /* Dropdown button on hover & focus */
 .dropbtn_search:hover, .dropbtn_search:focus {
-  background-color: #3e8e41;
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -4374,13 +4367,13 @@ body {
 }
 .menu_nav a.active {
     transition: color 0.2s ease;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.32);
     color: #ffffff;
     border-color: #f6f6f642;
 }
 #top_info > li > a.open {
    transition: color 0.2s ease;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.32);
     border-color: #f6f6f642;
     color: #fff;
     cursor: pointer;
@@ -4412,11 +4405,11 @@ body {
     padding-left: 10px;
     text-align: center;
     color: #edf6fd;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.32);
 }
 .button.button--cta, a.button.button--cta {
-    color: #fff;
-    background: #ff5722;
+    color: #666161;
+    background: #fbf7f6;
 }
 .block-body {
     padding: 10px 20px 20px;
@@ -4598,17 +4591,13 @@ body {
 @media (max-width: 900px) {
 .p-body-main, .p-body-content {
     display: block;
-    padding-right: 0;
+    padding-right: 0px !important;
  }
 }
 @media (max-width: 855px) {
 #profile_menu_top .textmenu, #pm_menu_top .textmenu, #alerts_menu_top .textmenu, .button_login .textmenu, .button_signup .textmenu {
     display: none;
   }
-.p-body-main--withSidebar .p-body-content {
-    padding-right: 10px;
-    padding-left: 10px;
- }
 .p-body-sidebar {
     width: 95%;
     margin-left: 8px;
@@ -4663,6 +4652,16 @@ body {
 .generic_menu ul li a {
 	color: #fff;
     background: #ff5722;
+}
+.generic_menu ul li a:hover {
+	color: #fff;
+    background: #708580;
+}
+.generic_menu ul li a.active {
+    transition: color 0.2s ease;
+    background: #c34;
+    color: #fcf8f8;
+    border-color: #c9525242;
 }
 .topic-item {
 	display: flex;
@@ -4763,16 +4762,16 @@ body {
 	box-shadow: 0 0 40px 0 rgb(0 0 0 / 6%);
 }
 .poster {
+	width: 13rem;
 	position: relative;
 	background: #ffffff;
-	border-right: 1px solid #d8d8d8;
 	min-width: 0;
 }
 .avatar {
 	text-align: center;
 }
 .user_info {
-	padding: 10px;
+	padding: 0px 10px;
 	position: relative;
 	z-index: 1;
 }
@@ -4793,11 +4792,38 @@ body {
 	background-image: -webkit-linear-gradient(left, #ff9800, #ff5722);
 	background-image: -o-linear-gradient(left, #ff9800, #ff5722);
 	background-image: linear-gradient(to right, #ff9800, #ff5722);
-	height: 120px;
+	height: 90px;
 	width: 100%;
 	padding: 0;
 	margin: 0;
-	border-top-left-radius: 9px;
-	border-top-right-radius: 9px;
 	opacity: 0.6;
+}
+.postarea {
+    width: calc(100% - 13rem);
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+	border-left: 1px solid #d8d8d8;
+}
+h1.forumtitle i {
+    font-size: 25px !important;
+    float: none;
+    color: #5edfff;
+    margin-right: 9px;
+}
+@media (max-width: 440px) {
+	#top_section h1.forumtitle span {
+		display: none;
+	  }
+	#top_section h1.forumtitle {
+		width: 55px !important;
+	 }
+	 .p-header-logo {
+		margin-right: 0px;
+	}
+}
+.dropmenu > li i {
+    margin-right: 5px;
+	font-size: 13px;
 }
