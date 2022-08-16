@@ -2234,13 +2234,15 @@ dl {
 }
 
 /* The basic user info on the left */
-#basicinfo {
+/* #basicinfo {
 	width: 20%;
 	float: left;
-}
+} */
+
 #detailedinfo {
-	width: 79.5%;
+	width: 100%;
 	float: right;
+	padding: 8px 8px;
 }
 #basicinfo > * {
 	margin-bottom: 3px;
@@ -4642,10 +4644,6 @@ body {
 .custom-shape-divider-top-1660156928 .shape-fill {
     fill: #F8F9FA;
 }
-.wt-footer {
-    margin-top: 55px;
-    padding: 15px;
-}
 .wt-footer + .footer-bottom {
 	margin-top: 20px;
 }
@@ -4826,4 +4824,154 @@ h1.forumtitle i {
 .dropmenu > li i {
     margin-right: 5px;
 	font-size: 13px;
+}
+/* foter link */
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+	background: #FFFFFF;
+    -webkit-box-shadow: 0 0 3px #ad5931;
+    box-shadow: 0 0 3px #ad5931;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    width: 100%;
+    position: relative;
+    margin-top: -63px;
+    z-index: 1;
+}
+.footer_article {
+    font-size: 16px;
+    line-height: 24px;
+}
+.footer_article ul {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+}
+.footer-list {
+    list-style: none;
+    display: block;
+    padding: 0 10px 0 10px;
+    margin: 0;
+    padding-top: 10px;
+}
+.footer_article ul li a {
+    margin: 0.2em 0;
+    color: rgb(15, 14, 14);
+    text-decoration: none;
+    position: relative;
+    display: block;
+    padding: 2px 0;
+    margin-top: 0.5em;
+}
+.footer_article li, .footer_article p, .footer_article a {
+    color: #110b0b !important;
+}
+.footer_article .head {
+    font-size: 20px !important;
+    border-bottom-color: rgba(175, 186, 202, 0.274);
+}
+.head {
+    position: relative;
+    font-weight: bold !important;
+    display: block;
+    font-size: 22px;
+    line-height: 26px;
+    color: #596880;
+    padding-left: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e6ed;
+}
+.head:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 60px;
+    background: #ff7d03;
+}
+.head i {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-size: 24px;
+    color: #ff6803;
+}
+@media (min-width: 926px) {
+.footer_article {
+    flex: 1 1 10px;
+  }
+}
+.footer_article {
+    padding: 10px;
+}
+/* User Profile */
+@media (min-width: 651px) {
+	.memberHeader {
+		min-height: 212px;
+	}
+}
+.memberHeader--withBanner .memberHeader-main {
+	min-height: 180px;
+}
+.memberHeader-main {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	background: #edf6fd;
+	border-bottom: 1px solid #dfdfdf;
+	border-radius: 3px 3px 0 0;
+	position: relative;
+}
+.memberHeader-avatar {
+	position: absolute;
+	padding: 8px;
+}
+.avatarWrapper {
+	display: inline-block;
+	position: relative;
+    top: 45px;
+	background-color: #fff;
+}
+.avatar--l img.avatar {
+	border-radius: 4px !important;
+}
+
+.avatar--l img.avatar {
+	max-width: 192px !important;
+	max-height: 192px !important;
+    width: 192px !important;
+	height: 192px !important;
+	font-size: 115px;
+}
+.avatar--l img.avatar {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	vertical-align: top;
+	overflow: hidden;
+}
+.memberHeader-content {
+	padding: 8px;
+	padding-left: 208px;
+}
+.memberHeader-actionTop {
+	float: right;
+}
+.buttonGroup {
+	display: inline-block;
+	vertical-align: top;
+}
+.button.button--link, a.button.button--link {
+	background: #fefefe;
+	color: #23345B;
+	border-color: #e5e5e5 #cbcbcb #cbcbcb #e5e5e5;
+}
+
+.buttonGroup > .button {
+	float: left;
 }

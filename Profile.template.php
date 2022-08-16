@@ -158,8 +158,9 @@ function template_summary()
 
 	// Display the basic information about the user
 	echo '
-	<div id="profileview" class="roundframe flow_auto noup">
-		<div id="basicinfo">';
+	<div id="profileview" class="postblock  flow_auto noup">
+		<div id="basicinfo"  class="memberHeader memberHeader--withBanner">
+<div class="memberProfileBanner memberHeader-main">';
 
 	// Are there any custom profile fields for above the name?
 	if (!empty($context['print_custom_fields']['above_member']))
@@ -179,7 +180,31 @@ function template_summary()
 	}
 
 	echo '
-			<div class="username clear">
+           <span class="memberHeader-avatar">
+           <span class="avatar avatar--l avatar--default avatar--default--dynamic avatarWrapper">
+             ', $context['member']['avatar']['image'], '
+           </span>
+           </span>
+           <div class="memberHeader-content memberHeader-content--info">
+           <div class="memberHeader-actionTop">				
+					<div class="buttonGroup">';
+
+	if (!$context['user']['is_owner'] && $context['can_send_pm'])
+		echo '
+			<a href="', $scripturl, '?action=pm;sa=send;u=', $context['id_member'], '" class="button--link button infolinks">', $txt['profile_sendpm_short'], '</a>';
+
+	echo '
+			<a href="', $scripturl, '?action=profile;area=showposts;u=', $context['id_member'], '" class="button--link button infolinks">', $txt['showPosts'], '</a>';
+
+	if ($context['user']['is_owner'] && !empty($modSettings['drafts_post_enabled']))
+		echo '
+			<a href="', $scripturl, '?action=profile;area=showdrafts;u=', $context['id_member'], '" class="button--link button infolinks">', $txt['drafts_show'], '</a>';
+
+	echo '
+			<a href="', $scripturl, '?action=profile;area=statistics;u=', $context['id_member'], '" class="button--link button infolinks">', $txt['statPanel'], '</a>
+           </div>
+           </div>
+			<div class="username">
 				<h4>';
 
 	if (!empty($context['print_custom_fields']['before_member']))
@@ -200,8 +225,7 @@ function template_summary()
 	echo '
 					<span class="position">', (!empty($context['member']['group']) ? $context['member']['group'] : $context['member']['post_group']), '</span>
 				</h4>
-			</div>
-			', $context['member']['avatar']['image'];
+			</div>';
 
 	// Are there any custom profile fields for below the avatar?
 	if (!empty($context['print_custom_fields']['below_avatar']))
@@ -221,7 +245,7 @@ function template_summary()
 	}
 
 	echo '
-			<ul class="icon_fields clear">';
+			<ul class="icon_fields">';
 
 	// Email is only visible if it's your profile or you have the moderate_forum permission
 	if ($context['member']['show_email'])
@@ -254,21 +278,8 @@ function template_summary()
 				<a href="', $scripturl, '?action=buddy;u=', $context['id_member'], ';', $context['session_var'], '=', $context['session_id'], '">', $txt['buddy_' . ($context['member']['is_buddy'] ? 'remove' : 'add')], '</a>';
 
 	echo '
-			</span>';
-
-	if (!$context['user']['is_owner'] && $context['can_send_pm'])
-		echo '
-			<a href="', $scripturl, '?action=pm;sa=send;u=', $context['id_member'], '" class="infolinks">', $txt['profile_sendpm_short'], '</a>';
-
-	echo '
-			<a href="', $scripturl, '?action=profile;area=showposts;u=', $context['id_member'], '" class="infolinks">', $txt['showPosts'], '</a>';
-
-	if ($context['user']['is_owner'] && !empty($modSettings['drafts_post_enabled']))
-		echo '
-			<a href="', $scripturl, '?action=profile;area=showdrafts;u=', $context['id_member'], '" class="infolinks">', $txt['drafts_show'], '</a>';
-
-	echo '
-			<a href="', $scripturl, '?action=profile;area=statistics;u=', $context['id_member'], '" class="infolinks">', $txt['statPanel'], '</a>';
+			</span>
+      </div>';
 
 	// Are there any custom profile fields for bottom?
 	if (!empty($context['print_custom_fields']['bottom_poster']))
@@ -288,6 +299,7 @@ function template_summary()
 	}
 
 	echo '
+        </div><!-- .profile baner -->
 		</div><!-- #basicinfo -->
 
 		<div id="detailedinfo">

@@ -445,7 +445,7 @@ function template_body_above()
  */
 function template_body_below()
 {
-	global $context, $txt, $scripturl, $modSettings;
+	global $context, $txt, $settings, $scripturl, $modSettings;
 
 	echo '
 			</div><!-- #main_content_section -->
@@ -462,8 +462,93 @@ function template_body_below()
         <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
         <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
     </svg>
-</div>
-<div class="wt-footer"></div>
+</div>';
+
+// Custom Footer Links
+	   if (!empty($settings['wt_enabled']))
+{
+   echo '
+
+<div class="wt-footer">
+   <div class="inner_wrap">
+	   <div class="footer-main">
+	   <div class="footer_article">
+			   <ul>';
+		   if(!empty($settings['wt_footer4']))
+			   echo '
+				   <li class="head"><i class="fa-solid fa-circle-exclamation"></i><h3>', $settings['wt_footer4'] , '</h3></li>';
+		   if(!empty($settings['wt_title13']))
+			   echo '
+				   <li class="footer-list"><p>', $settings['wt_title13'] , '</p></li>';
+			   echo '
+			   </ul>
+		   </div>
+		   <div class="footer_article">
+			   <ul>';
+		   if(!empty($settings['wt_footer1']))
+			   echo '
+			   <li class="head"><i class="fa-brands fa-bandcamp"></i><h3>', $settings['wt_footer1'] , '</h3></li>';
+		   if(!empty($settings['wt_title1']))
+			   echo '
+				   <li><a title="' . $settings['wt_title1'] . '" href="', $settings['wt_url1'] , '">' , $settings['wt_title1'] , '</a></li>';
+		   if(!empty($settings['wt_title2']))
+			   echo '
+				   <li><a title="' . $settings['wt_title2'] . '" href="', $settings['wt_url2'] , '">' , $settings['wt_title2'] , '</a></li>';
+		   if(!empty($settings['wt_title3']))
+			   echo '
+				   <li><a title="' . $settings['wt_title3'] . '" href="', $settings['wt_url3'] , '">' , $settings['wt_title3'] , '</a></li>';
+		   if(!empty($settings['wt_title4']))
+			   echo '
+				   <li><a title="' . $settings['wt_title4'] . '" href="', $settings['wt_url4'] , '">' , $settings['wt_title4'] , '</a></li>';
+			   echo '
+			   </ul>
+		   </div>
+		   <div class="footer_article">
+			   <ul>';
+		   if(!empty($settings['wt_footer2']))
+			   echo '
+			   <li class="head"><i class="fa-brands fa-bandcamp"></i><h3>', $settings['wt_footer2'] , '</h3></li>';
+		   if(!empty($settings['wt_title5']))
+			   echo '
+				   <li><a title="' . $settings['wt_title5'] . '" href="', $settings['wt_url5'] , '">' , $settings['wt_title5'] , '</a></li>';
+		   if(!empty($settings['wt_title6']))
+			   echo '
+				   <li><a title="' . $settings['wt_title6'] . '" href="', $settings['wt_url6'] , '">' , $settings['wt_title6'] , '</a></li>';
+		   if(!empty($settings['wt_title7']))
+			   echo '
+				   <li><a title="' . $settings['wt_title7'] . '" href="', $settings['wt_url7'] , '">' , $settings['wt_title7'] , '</a></li>';
+		   if(!empty($settings['wt_title8']))
+			   echo '
+				   <li><a title="' . $settings['wt_title8'] . '" href="', $settings['wt_url8'] , '">' , $settings['wt_title8'] , '</a></li>';
+			   echo '
+			   </ul>
+		   </div>
+		   <div class="footer_article">
+			   <ul>';
+		   if(!empty($settings['wt_footer3']))
+			   echo '
+			   <li class="head"><i class="fa-brands fa-bandcamp"></i><h3>', $settings['wt_footer3'] , '</h3></li>';
+		   if(!empty($settings['wt_title9']))
+			   echo '
+				   <li><a title="' . $settings['wt_title9'] . '" href="', $settings['wt_url9'] , '">' , $settings['wt_title9'] , '</a></li>';
+		   if(!empty($settings['wt_title10']))
+			   echo '
+				   <li><a title="' . $settings['wt_title10'] . '" href="', $settings['wt_url10'] , '">' , $settings['wt_title10'] , '</a></li>';
+		   if(!empty($settings['wt_title11']))
+			   echo '
+				   <li><a title="' . $settings['wt_title11'] . '" href="', $settings['wt_url11'] , '">' , $settings['wt_title11'] , '</a></li>';
+		   if(!empty($settings['wt_title12']))
+			   echo '
+				   <li><a title="' . $settings['wt_title12'] . '" href="', $settings['wt_url2'] , '">' , $settings['wt_title12'] , '</a></li>';
+			   echo '
+			   </ul>
+		   </div>
+	   </div>
+   </div>
+</div><!-- @end .footer footer Links -->';
+
+}
+echo '
 <div class="footer-bottom">
 		<div class="inner_wrap">';
 

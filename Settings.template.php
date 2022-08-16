@@ -206,6 +206,160 @@ function template_settings()
 			'type' => 'number',
 		),
 		'',
+        array(
+			'id' => 'wt_enabled',
+			'label' => $txt['wt_enabled'],
+			'description' => $txt['wt_enabled_desc'],
+        ),
+        array(
+			'id' => 'wt_footer1',
+			'label' => $txt['wt_footer1'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title1',
+			'label' => $txt['wt_title1'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url1',
+			'label' => $txt['wt_url1'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title2',
+			'label' => $txt['wt_title2'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url2',
+			'label' => $txt['wt_url2'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title3',
+			'label' => $txt['wt_title3'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url3',
+			'label' => $txt['wt_url3'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title4',
+			'label' => $txt['wt_title4'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url4',
+			'label' => $txt['wt_url4'],
+			'type' => 'text',
+		),
+'',
+        array(
+			'id' => 'wt_footer2',
+			'label' => $txt['wt_footer2'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title5',
+			'label' => $txt['wt_title5'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url5',
+			'label' => $txt['wt_url5'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title6',
+			'label' => $txt['wt_title6'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url6',
+			'label' => $txt['wt_url6'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title7',
+			'label' => $txt['wt_title7'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url7',
+			'label' => $txt['wt_url7'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title8',
+			'label' => $txt['wt_title8'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url8',
+			'label' => $txt['wt_url8'],
+			'type' => 'text',
+		),
+'',
+        array(
+			'id' => 'wt_footer3',
+			'label' => $txt['wt_footer3'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title9',
+			'label' => $txt['wt_title9'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url9',
+			'label' => $txt['wt_url9'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title10',
+			'label' => $txt['wt_title10'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url10',
+			'label' => $txt['wt_url10'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title11',
+			'label' => $txt['wt_title11'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url11',
+			'label' => $txt['wt_url11'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title12',
+			'label' => $txt['wt_title12'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_url12',
+			'label' => $txt['wt_url12'],
+			'type' => 'text',
+		),
+'',
+        array(
+			'id' => 'wt_footer4',
+			'label' => $txt['wt_footer4'],
+			'type' => 'text',
+		),
+        array(
+			'id' => 'wt_title13',
+			'label' => $txt['wt_title13'],
+			'type' => 'textarea',
+		),
+		'',
 		array(
 			'id' => 'number_recent_posts',
 			'label' => $txt['number_recent_posts'],
