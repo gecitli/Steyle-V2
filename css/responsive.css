@@ -205,17 +205,21 @@
 		display: none;
 	}
 	.info {
-		width: calc(100% - 65px);
+		display: block;
+        width: auto;
+	}
+	.dropdown_children {
+		display: none;
 	}
 	.lastpost {
-		width: 100%;
-		padding: 0;
-		display: block;
-		min-height: 2em;
+	   display: block;
+       width: auto;
+       margin-top: -4px;
+       padding-top: 0;
+	   padding-left: 0;
 	}
-	.up_contain .lastpost {
-		border-top: 1px solid #ddd;
-		min-height: initial;
+	.topic-item-poster-avatar, .avatar-bg {
+		display: none;
 	}
 	.lastpost p {
 		margin: 5px;

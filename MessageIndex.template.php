@@ -54,12 +54,13 @@ function template_main()
 	<div id="board_', $context['current_board'], '_childboards" class="boardindex_table main_container">
 		<div class="cat_bar">
 			<h3 class="catbg">', $txt['sub_boards'], '</h3>
-		</div>';
+		</div>
+		<div class="block-body block-body--collapsible is-active">';
 
 		foreach ($context['boards'] as $board)
 		{
 			echo '
-		<div id="board_', $board['id'], '" class="up_contain ', (!empty($board['css_class']) ? $board['css_class'] : ''), '">
+		<div id="board_', $board['id'], '" class="node-body up_contain ', (!empty($board['css_class']) ? $board['css_class'] : ''), '">
 			<div class="board_icon">
 				', function_exists('template_bi_' . $board['type'] . '_icon') ? call_user_func('template_bi_' . $board['type'] . '_icon', $board) : template_bi_board_icon($board), '
 			</div>
@@ -88,7 +89,8 @@ function template_main()
 				echo '
 		</div><!-- #board_[id] -->';
 		}
-
+		echo '
+		</div>';
 		echo '
 	</div><!-- #board_[current_board]_childboards -->';
 	}
@@ -438,9 +440,17 @@ function template_bi_board_stats($board)
 	global $txt;
 
 	echo '
-		<p>
-			', $txt['posts'], ': ', comma_format($board['posts']), '<br>', $txt['board_topics'], ': ', comma_format($board['topics']), '
-		</p>';
+	<div class="counter_stats">
+	<span title="', $txt['posts'], '"><span><i class="icon fas fa-reply-all"></i></span>
+	<span id="stats_no">', comma_format($board['posts']), '</span> 
+	</span>
+	</div>
+	<div class="counter_stats">
+	<span title="', $txt['board_topics'], '">
+	<span><i class="fa-solid fa-eye"></i></span>
+	<span id="stats_no">', comma_format($board['topics']), '</span>
+	</span> 
+	</div>';
 }
 
 /**
@@ -453,9 +463,7 @@ function template_bi_redirect_stats($board)
 	global $txt;
 
 	echo '
-		<p>
-			', $txt['redirects'], ': ', comma_format($board['posts']), '
-		</p>';
+	<p>', icon('fas fa-external-link-alt'), ' ', comma_format($board['posts']), '</p>';
 }
 
 /**
@@ -466,9 +474,21 @@ function template_bi_redirect_stats($board)
  */
 function template_bi_board_lastpost($board)
 {
-	if (!empty($board['last_post']['id']))
-		echo '
-			<p>', $board['last_post']['last_post_message'], '</p>';
+	if (empty($board['last_post']['id']))
+		return;
+
+	echo '
+		<div class="topic-item">
+			<div class="topic-item-poster-avatar">', $board['last_post']['member']['avatar']['image'], '</div>
+            <div class="avatar-bg"></div>
+			<div class="topic-item-content">
+				<div class="topic-item-title">', $board['last_post']['link'], '</div>
+				<div class="topic-item-details">
+					<div class="topic-item-poster">', $board['last_post']['member']['link'], '</div>
+					<div class="topic-item-time">', icon('far fa-clock'), ' ', timeformat($board['last_post']['timestamp']), '</div>
+				</div>
+			</div>
+		</div>';
 }
 
 /**

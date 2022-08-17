@@ -2988,28 +2988,32 @@ h3 .collapse {
 }
 
 .board_icon {
-	text-align: center;
-	padding: 8px 0 0 0;
-	width: 60px;
-	flex-shrink: 0;
+	display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 50px;
+    padding: 10px 0 10px 10px;
 }
 .boardindex_table .board_icon {
-	width: 80px;
+	width: 60px;
 }
+/*
 .boardindex_table .info {
 	width: calc(55% - 80px);
 }
+
 .boardindex_table .board_stats {
 	padding: 13px 10px 10px;
 }
+*/
 .boardindex_table .board_stats p {
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 }
 .info {
-	overflow-wrap: break-word;
-	padding: 5px 5px 5px 0;
-	flex-grow: 1;
+	display: table-cell;
+    vertical-align: middle;
+    padding: 10px;
 }
 .info .subject {
 	font-weight: 600;
@@ -3017,20 +3021,25 @@ h3 .collapse {
 	color: #a85400;
 }
 .board_stats {
-	width: 15%;
-	font-size: 0.9em;
-	margin: 0 0 0 auto;
-	text-align: center;
+	display: table-cell;
+    width: 140px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px 0;
 }
 .lastpost {
-	width: 30%;
-	font-size: 0.9em;
-	padding-top: 3px;
+	display: table-cell;
+    vertical-align: middle;
+    width: 280px;
+    padding: 10px;
+    font-size: 13px;
 }
+/*
 .board_icon, .info, .board_stats, .lastpost {
 	display: inline-block;
 	align-self: center;
 }
+*/
 .main_container {
 	color: #141414;
     background: #fefefe;
@@ -3052,6 +3061,11 @@ h3 .collapse {
     box-shadow: rgb(0 0 0 / 5%) 0px 0px 0px 1px;
     -webkit-box-shadow: rgb(0 0 0 / 5%) 0px 0px 0px 1px;
     -moz-box-shadow: rgba(0,0,0,0.05) 0px 0px 0px 1px;
+}
+.node-body {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
 }
 /* Child boards */
 .children {
@@ -3167,13 +3181,17 @@ span.postby {
 }
 #topic_container .windowbg {
 	border: 1px solid rgba(0, 0, 0, 0.13);
-	border-top: none;
-	display: flex;
-	box-shadow: none;
-	border-radius: 0;
-	padding: 0;
-	margin: 0;
-	overflow: hidden;
+    border-top: none;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: hidden;
+    display: table;
+    table-layout: fixed;
+    border-collapse: collapse;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 #topic_container .lastpost, #topic_header .lastpost {
 	width: 20%;
@@ -4662,13 +4680,12 @@ body {
     border-color: #c9525242;
 }
 .topic-item {
-	display: flex;
-	flex-wrap: nowrap;
-	align-items: center;
 	position: relative;
 }
 .topic-item-poster-avatar {
     margin-inline-end: 6px;
+    float: left;
+    position: relative;
 }
 .topic-item-content {
 	flex-grow: 1;

@@ -101,7 +101,7 @@ function template_main()
 		foreach ($category['boards'] as $board)
 		{
 			echo '
-				<div id="board_', $board['id'], '" class="up_contain ', (!empty($board['css_class']) ? $board['css_class'] : ''), '">
+				<div id="board_', $board['id'], '" class="node-body up_contain ', (!empty($board['css_class']) ? $board['css_class'] : ''), '">
 					<div class="board_icon">
 						', function_exists('template_bi_' . $board['type'] . '_icon') ? call_user_func('template_bi_' . $board['type'] . '_icon', $board) : template_bi_board_icon($board), '
 					</div>
