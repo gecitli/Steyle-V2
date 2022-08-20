@@ -160,7 +160,8 @@ function template_summary()
 	echo '
 	<div id="profileview" class="postblock  flow_auto noup">
 		<div id="basicinfo"  class="memberHeader memberHeader--withBanner">
-<div class="memberProfileBanner memberHeader-main">';
+<div class="memberProfileBanner memberHeader-main">
+            <div class="memberHeader-mainContent">';
 
 	// Are there any custom profile fields for above the name?
 	if (!empty($context['print_custom_fields']['above_member']))
@@ -181,8 +182,8 @@ function template_summary()
 
 	echo '
            <span class="memberHeader-avatar">
-           <span class="avatar avatar--l avatar--default avatar--default--dynamic avatarWrapper">
-             ', $context['member']['avatar']['image'], '
+           <span class="avatarWrapper">
+		   <a href="#" class="avatar avatar--l"> ', $context['member']['avatar']['image'], '</a>
            </span>
            </span>
            <div class="memberHeader-content memberHeader-content--info">
@@ -299,9 +300,24 @@ function template_summary()
 	}
 
 	echo '
-        </div><!-- .profile baner -->
-		</div><!-- #basicinfo -->
+	    </div>
+        </div><!-- .profile baner -->';
+		echo '
+		<div class="memberHeader-content">
+		<div class="memberHeader-stats">
+			<div class="pairJustifier">';
 
+				if (!isset($context['disabled_fields']['posts']))
+				echo '
+				<dl class="pairs pairs--rows pairs--rows--centered fauxBlockLink">
+				<dt>', $txt['profile_posts'], '</dt>
+				<dd>', $context['member']['posts'], ' (', $context['member']['posts_per_day'], ' ', $txt['posts_per_day'], ')</dd>
+			  </dl>
+           </div>
+		  </div>
+		  <hr class="memberHeader-separator">
+		</div>
+		</div><!-- #basicinfo -->
 		<div id="detailedinfo">
 			<dl class="settings">';
 
@@ -309,11 +325,6 @@ function template_summary()
 		echo '
 				<dt>', $txt['username'], ': </dt>
 				<dd>', $context['member']['username'], '</dd>';
-
-	if (!isset($context['disabled_fields']['posts']))
-		echo '
-				<dt>', $txt['profile_posts'], ': </dt>
-				<dd>', $context['member']['posts'], ' (', $context['member']['posts_per_day'], ' ', $txt['posts_per_day'], ')</dd>';
 
 	if ($context['member']['show_email'])
 		echo '

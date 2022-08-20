@@ -556,7 +556,7 @@ echo '
 	echo '
 		<ul>
 			<li class="floatright"><a href="', $scripturl, '?action=help">', $txt['help'], '</a> ', (!empty($modSettings['requireAgreement'])) ? '| <a href="' . $scripturl . '?action=agreement">' . $txt['terms_and_rules'] . '</a>' : '', ' | <a href="#top_section">', $txt['go_up'], ' &#9650;</a></li>
-			<li class="copyright">', theme_copyright(), '</li>
+			<li class="copyright">', theme_copyright(), ' <span style="font-size: 1em; color: #009688;"><i class="fas fa-heart"></i></span> ', Wt_copy(), '</li>
 		</ul>';
 
 	// Show the load time?
@@ -650,7 +650,12 @@ function theme_linktree($force_show = false)
 
 	$shown_linktree = true;
 }
+// Theme copyright, please DO NOT REMOVE THIS!!
+function WT_copy() {
+	$WT = 'Theme by <a href="https://webtiryaki.com" target="_blank" rel="noopener">Webtiryaki</a>';
 
+	return $WT;
+}
 /**
  * Show the menu up top. Something like [home] [help] [profile] [logout]...
  */

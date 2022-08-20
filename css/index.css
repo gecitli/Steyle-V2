@@ -1104,8 +1104,8 @@ a[class^="mobile_generic_menu_"] {
 	max-width: 100%;
 }
 #pm_menu, #alerts_menu, #profile_menu {
-	left: 0;
 	right: 0;
+    left: auto;
 	padding-right: 10px;
 }
 #profile_menu_top > img.avatar {
@@ -1113,6 +1113,11 @@ a[class^="mobile_generic_menu_"] {
 	width: 18px;
 	margin: 2px 5px 0 0;
 	float: left;
+}
+#profile_menu img.avatar {
+    height: 48px;
+    width: 48px;
+    border-radius: 10%;
 }
 #pm_menu_top .main_icons,
 #alerts_menu_top .main_icons {
@@ -2242,7 +2247,7 @@ dl {
 #detailedinfo {
 	width: 100%;
 	float: right;
-	padding: 8px 8px;
+	padding: 8px 20px;
 }
 #basicinfo > * {
 	margin-bottom: 3px;
@@ -4448,7 +4453,7 @@ body {
 .counter_stats span i {
     font-size: 12px;
 }
-#stats_no {
+.stats_no {
     display: inline-block;
     background: #fff none repeat scroll 0;
     color: #112a46;
@@ -4939,11 +4944,8 @@ h1.forumtitle i {
 /* User Profile */
 @media (min-width: 651px) {
 	.memberHeader {
-		min-height: 212px;
+		min-height: 158px;
 	}
-}
-.memberHeader--withBanner .memberHeader-main {
-	min-height: 180px;
 }
 .memberHeader-main {
 	display: flex;
@@ -4952,7 +4954,9 @@ h1.forumtitle i {
 	background: #edf6fd;
 	border-bottom: 1px solid #dfdfdf;
 	border-radius: 3px 3px 0 0;
-	position: relative;
+}
+.memberHeader-mainContent {
+    position: relative;
 }
 .memberHeader-avatar {
 	position: absolute;
@@ -4961,21 +4965,33 @@ h1.forumtitle i {
 .avatarWrapper {
 	display: inline-block;
 	position: relative;
-    top: 45px;
-	background-color: #fff;
 }
-.avatar--l img.avatar {
+.avatar--l .avatar {
 	border-radius: 4px !important;
 }
-
-.avatar--l img.avatar {
-	max-width: 192px !important;
-	max-height: 192px !important;
-    width: 192px !important;
-	height: 192px !important;
-	font-size: 115px;
+.avatar.avatar--l {
+    width: 192px;
+    height: 192px;
+    font-size: 115px;
 }
+.avatar--l img:not(.cropImage) {
+    text-indent: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    word-wrap: normal;
+    display: block;
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+}
+@media (max-width: 650px) {
 .avatar--l img.avatar {
+    width: 96px;
+    height: 96px;
+    font-size: 58px;
+  }
+}
+.avatar--l .avatar {
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
@@ -4985,7 +5001,7 @@ h1.forumtitle i {
 }
 .memberHeader-content {
 	padding: 8px;
-	padding-left: 208px;
+	padding-left: 188px;
 }
 .memberHeader-actionTop {
 	float: right;
@@ -4999,7 +5015,90 @@ h1.forumtitle i {
 	color: #23345B;
 	border-color: #e5e5e5 #cbcbcb #cbcbcb #e5e5e5;
 }
-
 .buttonGroup > .button {
 	float: left;
+}
+@media (max-width: 480px) {
+.memberHeader-avatar {
+    display: block;
+    position: static;
+    float: none;
+    padding-bottom: 0;
+    text-align: center;
+  }
+.memberHeader-main .memberHeader-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+    min-height: 0;
+    text-align: center;
+	padding-left: 10px;
+ }
+.memberHeader-actionTop {
+    float: none;
+    order: 2;
+    margin-top: 3px;
+ }
+ #basicinfo .icon_fields li {
+    float: inherit;
+ }
+}
+.memberHeader-stats {
+    font-size: 17px;
+}
+.pairJustifier {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: -5px;
+    margin-bottom: -5px;
+}
+.pairJustifier .pairs.pairs--rows {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.pairs.pairs--rows {
+    display: inline-table;
+    margin-right: 6px;
+}
+.fauxBlockLink {
+    position: relative;
+}
+.pairs {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+/* f-icon */
+.fa-help:before {
+	content: "\f059";
+}
+.fa-gear:before, .fa-admin:before, .fa-cog:before {
+	content: "\f013";
+}
+.fa-signup:before {
+	content: "\f4ff";
+}
+.fa-contact:before {
+	content: "\f573";
+}
+.fa-forum:before {
+	content: "\f086";
+}
+.fa-moderate:before {
+	content: "\f0ad";
+}
+.fa-profile:before {
+	content: "\f007";
+}
+.fa-mlist:before, .fa-view_all_members:before {
+	content: "\f0c0";
+}
+.fa-caret-square-down:before,
+.toggle_down:before {
+content: "\f204"; 
+}
+
+.fa-caret-square-up:before {
+content: "\f205"; 
 }

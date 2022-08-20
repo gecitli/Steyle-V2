@@ -219,13 +219,13 @@ function template_bi_board_stats($board)
 	echo '
 		<div class="counter_stats">
 		<span title="', $txt['posts'], '"><span><i class="icon fas fa-reply-all"></i></span>
-		<span id="stats_no">', comma_format($board['posts']), '</span> 
+		<span class="stats_no">', comma_format($board['posts']), '</span> 
 		</span>
 		</div>
 		<div class="counter_stats">
 		<span title="', $txt['board_topics'], '">
 		<span><i class="fa-solid fa-eye"></i></span>
-		<span id="stats_no">', comma_format($board['topics']), '</span>
+		<span class="stats_no">', comma_format($board['topics']), '</span>
 		</span> 
 		</div>';
 }
