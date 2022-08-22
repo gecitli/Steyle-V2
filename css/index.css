@@ -2824,7 +2824,7 @@ dl.addrules dt.floatleft {
 }
 .popup_heading {
 	padding: 10px 8px;
-	color: #bf6900;
+	color: #fcfbf9;
 }
 .popup_content {
 	color: #222;
@@ -3936,10 +3936,13 @@ h3.profile_hd::before,
 .dropmenu li li:hover > a, .dropmenu li li a:focus, .dropmenu li li a:hover,
 .quickbuttons > li,
 .quickbuttons li ul, .quickbuttons li ul li a:hover, .quickbuttons ul li a:focus,
-.inline_mod_check, .popup_window, .post_options ul,
+.inline_mod_check, .post_options ul,
 .post_options ul a:hover, .post_options ul a:focus, .notify_dropdown a:hover, .notify_dropdown a:focus {
 	background: #fff; /* fallback for some browsers */
 	background-image: linear-gradient(#e2e9f3 0%, #fff 70%);
+}
+.popup_window {
+    background-image: linear-gradient(to left,#f8b332,#fc4c1b);
 }
 /* Well some of them has different gradient effect on hover */
 .button:hover, #search_form .button:hover, .quickbuttons li:hover {
