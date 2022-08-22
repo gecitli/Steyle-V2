@@ -63,7 +63,7 @@ function template_main()
 	// Show the anchor for the top and for the first message. If the first message is new, say so.
 	echo '
 		</div><!-- #display_head -->
-		<a id="msg', $context['first_message'], '"></a>', $context['first_new_message'] ? '<a id="new"></a>' : '';
+		', $context['first_new_message'] ? '<a id="new"></a>' : '';
 
 	// Is this topic also a poll?
 	if ($context['is_poll'])
@@ -231,8 +231,7 @@ function template_main()
 			<div class="pagelinks floatleft">
 				<a href="#bot" class="button">', $txt['go_down'], '</a>
 				', $context['page_index'], '
-			</div>
-		</div>';
+			</div>';
 
 	// Mobile action - moderation buttons (top)
 	if (!empty($context['normal_buttons']))
@@ -240,6 +239,9 @@ function template_main()
 		<div class="mobile_buttons floatright">
 			<a class="button mobile_act">', $txt['mobile_action'], '</a>
 			', !empty($context['mod_buttons']) ? '<a class="button mobile_mod">' . $txt['mobile_moderation'] . '</a>' : '', '
+		</div>';
+
+	echo '
 		</div>';
 
 	// Show the topic information - icon, subject, etc.
@@ -478,7 +480,7 @@ function template_single_post($message)
 	echo '
 				<div class="postblock ', trim(str_replace('windowbg', '', $message['css_class'])), '">
 					', $message['id'] != $context['first_message'] ? '
-					<a id="msg' . $message['id'] . '"></a>' . ($message['first_new'] ? '<a id="new"></a>' : '') : '', '
+					' . ($message['first_new'] ? '<a id="new"></a>' : '') : '', '
 					<div class="post_wrapper">';
 
 	// Show information about the poster of this message.
@@ -693,14 +695,13 @@ function template_single_post($message)
 								</div>';
 
 	echo '
-								<h5>
+								', !empty($message['counter']) ? '<span class="page_number floatright">#' . $message['counter'] . '</span>' : '', '
+								<div class="postinfo">
 									<span class="messageicon" ', ($message['icon_url'] === $settings['images_url'] . '/post/xx.png' && !$message['can_modify']) ? ' style="position: absolute; z-index: -1;"' : '', '>
 										<img src="', $message['icon_url'] . '" alt=""', $message['can_modify'] ? ' id="msg_icon_' . $message['id'] . '"' : '', '>
 									</span>
 									<a href="', $message['href'], '" rel="nofollow" title="', !empty($message['counter']) ? sprintf($txt['reply_number'], $message['counter'], ' - ') : '', $message['subject'], '" class="smalltext">', $message['time'], '</a>
-									<span class="page_number floatright">
-										', !empty($message['counter']) ? ' #' . $message['counter'] : '', ' ', '
-									</span>';
+									<span class="spacer"></span>';
 
 	// Show "<< Last Edit: Time by Person >>" if this post was edited. But we need the div even if it wasn't modified!
 	// Because we insert into it through AJAX and we don't want to stop themers moving it around if they so wish so they can put it where they want it.
@@ -713,7 +714,7 @@ function template_single_post($message)
 
 	echo '
 									</span>
-								</h5>
+								</div>
 								<div id="msg_', $message['id'], '_quick_mod"', $ignoring ? ' style="display:none;"' : '', '></div>
 							</div><!-- .keyinfo -->';
 

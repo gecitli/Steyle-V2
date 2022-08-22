@@ -501,7 +501,6 @@ a img {
 }
 .pagesection .pagelinks {
 	display: inline-block;
-	float: left;
 }
 .pages::after, .jump_to::after, .code::after,
 strong[id^='child_list_']::after {
@@ -4489,14 +4488,14 @@ body {
 .wt-shape-top-left {
     width: 100%;
     height: 100%;
-    -webkit-background-size: cover !important;
+    background-size: cover !important;
     background-position: 50% 50% !important;
     background-image: url(../images/ust.png);
 }
 .wt-shape-bottom-right {
     width: 100%;
     height: 100%;
-    -webkit-background-size: cover !important;
+    background-size: cover !important;
     background-position: 50% 50% !important;
     background-image: url(../images/alt.png);
 }
